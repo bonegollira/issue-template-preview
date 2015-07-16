@@ -62,7 +62,7 @@ gulp.task('css', () => gulp.src('app/css/*.css')
   .pipe(gulp.dest('.app'))
 );
 
-gulp.task('deloy', () => {
+gulp.task('deploy', () => {
   let pkg = require('./package.json');
   let ghPagesConfig = {
     remoteUrl: pkg.repository.url

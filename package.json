@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/bonegollira/issue-template-preview.git"
+    "url": "git@github.com:bonegollira/issue-template-preview.git"
   },
   "author": "bonegollira",
   "bugs": {

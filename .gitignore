@@ -29,3 +29,4 @@ node_modules
 .app
 .components
 .npm-debug.log
+.publish
