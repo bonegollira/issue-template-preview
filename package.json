@@ -1,0 +1,36 @@
+{
+  "name": "issue-template-preview",
+  "version": "1.0.0",
+  "description": "Githubのissueテンプレートを作るツール",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "deploy": "gulp deploy",
+    "bower": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bonegollira/issue-template-preview.git"
+  },
+  "author": "bonegollira",
+  "bugs": {
+    "url": "https://github.com/bonegollira/issue-template-preview/issues"
+  },
+  "homepage": "https://github.com/bonegollira/issue-template-preview#readme",
+  "dependencies": {
+    "react": "^0.13.3",
+    "marked": "^0.3.3"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "babel": "^5.6.18",
+    "babel-loader": "^5.1.4",
+    "browser-sync": "^2.7.13",
+    "gulp": "^3.8.11",
+    "gulp-load-plugins": "^0.7.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-webpack": "^1.5.0",
+    "gulp-gh-pages": "^0.5.2",
+    "main-bower-files": "^2.9.0"
+  }
+}
