@@ -2,6 +2,22 @@ import React from 'react';
 
 var Bar = React.createClass({
 
+  propTypes: {
+    body: React.PropTypes.string,
+    repository: React.PropTypes.string,
+    user: React.PropTypes.string,
+    organization: React.PropTypes.string,
+    title: React.PropTypes.string,
+  },
+
+  getDefaultProps: () => ({
+    body: '',
+    repository: '{repository}',
+    user: '{user}',
+    organization: '',
+    title: '{title}'
+  }),
+
   onClick () {
     let input = React.findDOMNode(this.refs.Bar__input);
     input.focus();
@@ -9,7 +25,8 @@ var Bar = React.createClass({
   },
 
   buildUrl (body) {
-    return `https://github.com/bonegollira/issue-template-preview/issues/new?body=${encodeURIComponent(body)}`;
+    let user = this.props.organization || this.props.user;
+    return `https://github.com/${user}/${this.props.repository}/issues/new?title=${encodeURIComponent(this.props.title)}&body=${encodeURIComponent(body)}`;
   },
 
   render () {

@@ -23,7 +23,7 @@ var Textarea = React.createClass({
         <textarea
           ref="Textarea__textarea"
           className="Textarea__textarea"
-          placeholder="markdown here"
+          placeholder="@repository(リポジトリ名)&#13;&#10;@user(ユーザ名orオーガナイゼーション名）&#13;&#10;@title(タイトル）"
           onKeyUp={this.props.onKeyUp}>
         </textarea>
       </section>

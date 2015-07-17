@@ -21,7 +21,6 @@ var Preview = React.createClass({
   }),
 
   innerHTML () {
-    console.log(this.props.markdowm);
     return {
       __html: marked(this.props.markdown)
     };
