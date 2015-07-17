@@ -21,7 +21,7 @@ let matchOneWord = reg => line => {
 let App = React.createClass({
 
   getInitialState: () => ({
-    markdown: body || '',
+    markdown: /*body || */'',
     repository: '{repository}',
     user: '{user}',
     organization: '',
