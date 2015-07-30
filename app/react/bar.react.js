@@ -8,6 +8,7 @@ var Bar = React.createClass({
     user: React.PropTypes.string,
     organization: React.PropTypes.string,
     title: React.PropTypes.string,
+    enterprise: React.PropTypes.string
   },
 
   getDefaultProps: () => ({
@@ -15,7 +16,8 @@ var Bar = React.createClass({
     repository: '{repository}',
     user: '{user}',
     organization: '',
-    title: '{title}'
+    title: '{title}',
+    enterprise: 'github.com'
   }),
 
   onClick () {
@@ -26,7 +28,7 @@ var Bar = React.createClass({
 
   buildUrl (body) {
     let user = this.props.organization || this.props.user;
-    return `https://github.com/${user}/${this.props.repository}/issues/new?title=${encodeURIComponent(this.props.title)}&body=${encodeURIComponent(body)}`;
+    return `https://${this.props.enterprise}/${user}/${this.props.repository}/issues/new?title=${encodeURIComponent(this.props.title)}&body=${encodeURIComponent(body)}`;
   },
 
   render () {

@@ -25,26 +25,29 @@ let App = React.createClass({
     repository: '{repository}',
     user: '{user}',
     organization: '',
-    title: '{title}'
+    title: '{title}',
+    enterprise: void 0
   }),
 
   getRepository: matchOneWord(/@repository\((.*?)\)/),
   getUser: matchOneWord(/@user\((.*?)\)/),
   getOrganization: matchOneWord(/@organization\((.*?)\)/),
   getTitle: matchOneWord(/@title\((.*?)\)/),
+  getEnterprise: matchOneWord(/@enterprise\((.*?)\)/),
 
   parseMarkdown (markdown) {
     let newLines = [];
     let lines = markdown.split('\n');
-    let repository, user, organization, title;
-    console.log(lines);
+    let repository, user, organization, title, enterprise;
+
     lines.forEach((line, i) => {
       let newRepository = this.getRepository(line);
       let newUser = this.getUser(line);
       let newOrganization = this.getOrganization(line);
       let newTitle = this.getTitle(line);
+      let newEnterprise = this.getEnterprise(line);
 
-      if (newRepository || newUser || newOrganization || newTitle) {
+      if (newRepository || newUser || newOrganization || newTitle || newEnterprise) {
         if (newRepository) {
           repository = newRepository;
         }
@@ -57,6 +60,9 @@ let App = React.createClass({
         if (newTitle) {
           title = newTitle;
         }
+        if (newEnterprise) {
+          enterprise = newEnterprise;
+        }
       }
       else {
         newLines.push(line);
@@ -67,6 +73,7 @@ let App = React.createClass({
     user && this.setState({user: user});
     organization && this.setState({organization: organization});
     title && this.setState({title: title});
+    enterprise && this.setState({enterprise: enterprise});
     return newLines.join('\n');
   },
 
@@ -78,6 +85,7 @@ let App = React.createClass({
     return (
       <div className="app">
         <Bar
+          enterprise={this.state.enterprise}
           repository={this.state.repository}
           user={this.state.user}
           organization={this.state.organization}
